@@ -1,8 +1,8 @@
 {
     "name": "rsn-schema-highlighter",
     "displayName": "DBcoach — Formaler Syntax für Relationalen Entwurf",
-    "version": "1.0",
-    "publisher": "Karim Keshta",
+    "version": "1.0.0",
+    "publisher": "KarimKeshta",
     "repository": {
     "type": "git",
         "url": "https://github.com/KarimKeshta/rsn-schema-highlighter" 
