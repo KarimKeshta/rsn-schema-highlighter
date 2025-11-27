@@ -1,0 +1,70 @@
+{
+    "scopeName": "source.rsn",
+    "fileTypes": ["rsn"],
+    "name": "Relational Schema Notation",
+    
+    "patterns": [
+        {"include": "#main"}
+    ],
+
+    "repository": {
+        "main": {
+            "patterns": [
+                {"include": "#entity_name"},
+                {"include": "#attribute_list"},
+                {"include": "#constraints"},
+                {"include": "#operators"},
+                {"include": "#delimiters"}
+            ]
+        },
+        
+        "entity_name": {
+            "name": "entity.name.type.rsn",
+            "match": "\\b(Gerichte|Fotos|Benutzer)\\b"
+        },
+
+        "attribute_list": {
+            "name": "variable.other.readwrite.rsn",
+            "match": "\\b[A-Za-z]+ID\\b|\\bName\\b|\\bPreis_[S|M|G]\\b|\\bDatum\\b|\\bDateipfad\\b|\\bIsStandard\\b"
+        },
+
+        "operators": {
+            "name": "keyword.operator.rsn",
+            "match": "->"
+        },
+
+        "constraints": {
+            "patterns": [
+                {
+                    "name": "keyword.control.rsn",
+                    "match": "\\b(NOT NULL|X|UNIQUE|FOREIGN KEY|REFERENCES)\\b"
+                },
+                {
+                    "name": "constant.numeric.rsn",
+                    "match": ">\\s*0"
+                }
+            ]
+        },
+
+        "delimiters": {
+            "patterns": [
+                {
+                    "name": "punctuation.definition.parameters.rsn",
+                    "match": "[{}]"
+                },
+                {
+                    "name": "punctuation.definition.begin.rsn",
+                    "match": "\\("
+                },
+                {
+                    "name": "punctuation.definition.end.rsn",
+                    "match": "\\)"
+                },
+                {
+                    "name": "punctuation.separator.comma.rsn",
+                    "match": ","
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "rsn-schema-highlighter",
+    "displayName": "Relational Schema Notation Highlighter",
+    "version": "0.0.1",
+    "publisher": "Karim Keshta",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "rsn",
+                "aliases": ["Relational Schema Notation", "rsn"],
+                "extensions": [".rsn"],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "rsn",
+                "scopeName": "source.rsn",
+                "path": "./syntaxes/rsn.tmLanguage.json"
+            }
+        ]
+    }
+}
