@@ -21,6 +21,13 @@
                 "scopeName": "source.rsn",
                 "path": "./syntaxes/rsn.tmLanguage.json"
             }
+        ],
+        "themes": [
+            {
+                "label": "RSN Theme Overrides",
+                "uiTheme": "vs-dark",
+                "path": "./themes/rsn-colors.json"
+            }
         ]
     }
 }

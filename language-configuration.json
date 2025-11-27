@@ -1,0 +1,23 @@
+{
+    "comments": {
+        "lineComment": "//",
+        "blockComment": [ "/*", "*/" ]
+    },
+    "brackets": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"]
+    ],
+    "autoClosingPairs": [
+        { "open": "{", "close": "}" },
+        { "open": "[", "close": "]" },
+        { "open": "(", "close": ")" }
+    ],
+    "indentationRules": {
+        // Erhöht die Einrückung nach einer öffnenden Klammer, 
+        // sofern keine schließende Klammer folgt.
+        "increaseIndentPattern": "\\s*\\([^\\)]*$", 
+        // Verringert die Einrückung vor einer schließenden Klammer oder eckigen Klammer.
+        "decreaseIndentPattern": "^\\s*(\\)|\\})"
+    }
+}
