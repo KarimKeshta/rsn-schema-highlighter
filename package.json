@@ -1,8 +1,13 @@
 {
     "name": "rsn-schema-highlighter",
-    "displayName": "Relational Schema Notation Highlighter",
-    "version": "0.0.1",
+    "displayName": "DBcoach — Formaler Syntax für Relationalen Entwurf",
+    "version": "1.0",
     "publisher": "Karim Keshta",
+    "repository": {
+    "type": "git",
+        "url": "https://github.com/KarimKeshta/rsn-schema-highlighter" 
+    },
+    "icon": "dbcoach-syntax-icon.png",
     "engines": {
         "vscode": "^1.80.0"
     },
