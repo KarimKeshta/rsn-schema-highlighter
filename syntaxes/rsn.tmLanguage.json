@@ -67,7 +67,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.rsn",
-                    "match": "\\b(NOT NULL|X|UNIQUE|FOREIGN KEY|REFERENCES)\\b"
+                    "match": "\\b(NOT NULL|CHECK)\\b"
                 },
                 {
                     "name": "constant.numeric.rsn",
