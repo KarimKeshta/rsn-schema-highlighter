@@ -8,121 +8,141 @@
     "repository": {
         "main": {
             "patterns": [
-                {"include": "#foreign_key_source_block"},
-                {"include": "#foreign_key_target_block"},
-                {"include": "#candidate_keys_block"},
-                {"include": "#table_definition"},
+                { "include": "#comments" },
+
+                {"include": "#relationship_source"},
+                {"include": "#relationship_target"},
+                {"include": "#key_candidate"},
+                {"include": "#table_columns"},
                 
-                {"include": "#candidate_key_indicator"},
-                {"include": "#constraints"},
-                {"include": "#entity_name"},
-                {"include": "#operators"},
-                {"include": "#delimiters"},
-                {"include": "#attribute_list"}
+                {"include": "#tablename"},
+                {"include": "#syntax"},
+                {"include": "#text"}
             ]
         },
-        "table_definition": {
-            "name": "meta.table-attribute-definition.rsn",
+
+        "comments": {
+            "name": "rsn.comment",
+            "match": "#.*$"
+        },
+
+        "keys_primary": {
+            "match": "(_)([A-Za-z0-9]+)(_)",
+            "captures": {
+                "1": { "name": "rsn.invisible" },
+                "2": { "name": "rsn.key.primary" },
+                "3": { "name": "rsn.invisible" }
+            }
+        },
+
+        "relationship_source": {
+            "match": "(\\()([A-Za-z0-9_]+)(\\))\\s*(->)",
+            "captures": {
+                "1": { "name": "rsn.syntax.bracket" },
+                "2": { "name": "rsn.relationship.source" },
+                "3": { "name": "rsn.syntax.bracket" },
+                "4": { "name": "rsn.syntax.relationship" }
+            }
+        },
+        "relationship_target": {
+            "match": "\\b([A-Za-z][A-Za-z0-9_]*)\\s*(\\()([A-Za-z0-9_]+)(\\))",
+            "captures": {
+                "1": { "name": "rsn.tablename" },
+                "2": { "name": "rsn.syntax.bracket" },
+                "3": { "name": "rsn.relationship.target" },
+                "4": { "name": "rsn.syntax.bracket" }
+            }
+        },
+
+        "key_candidate": {
+            "patterns":[
+                {
+                    "begin": "\\{",
+                    "end": "\\}",
+                    "beginCaptures": {
+                        "0": { "name": "rsn.syntax.bracket" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "rsn.syntax.bracket" }
+                    },
+                    "patterns": [
+                        {
+                            "match": ",",
+                            "name": "rsn.syntax.separator"
+                        },
+                        {
+                            "match": "[A-Za-z0-9_]+",
+                            "name": "rsn.key.candidate"
+                        }
+                    ]
+                },
+                {
+                    "match": "(?<=\\})\\s*(->)\\s*(X)",
+                    "captures": {
+                        "1": { "name": "rsn.syntax.relationship" },
+                        "2": { "name": "rsn.syntax.candidate"}
+                    }
+                }
+            ]
+        },
+
+        "table_columns": {
+            "name": "rsn.definition.columns",
             "begin": "\\s*\\(", 
             "end": "\\)",
             "beginCaptures": {
-                "0": { "name": "punctuation.separator.rsn" }
+                "0": {
+                    "name": "rsn.syntax.bracket" 
+                }
             },
             "endCaptures": {
-                "0": { "name": "punctuation.separator.rsn" }
+                "0": { "name": "rsn.syntax.bracket" }
             },
             "patterns": [
-                {"include": "#primary_key_attribute_definition"},
+                {"include": "#keys_primary"},
                 {
-                    "name": "entity.name.key.foreign.rsn",
+                    "name": "rsn.key.foreign",
                     "match": "\\b[A-Za-z0-9_]*(?:ID|Id)\\b"
                 },
-                {"include": "#attribute_list"},
-                {"include": "#delimiters"}
+                {"include": "#text"},
+                {"include": "#syntax"}
             ]
         },
-        "entity_name": {
-            "name": "entity.name.class.rsn",
+
+        "tablename": {
+            "name": "rsn.tablename",
             "match": "\\b[A-Z][A-Za-z0-9_]*\\b(?=\\s*\\()"
         },
 
-        "attribute_list": {
-            "name": "meta.text.plain.rsn", 
+        "text": {
+            "name": "rsn.text", 
             "match": "\\b[A-Za-z][A-Za-z0-9_]*\\b"
         },
 
-        "operators": {
-            "name": "keyword.operator.rsn",
-            "match": "(<=|=>|=|<|>|->)"
-        },
-
-        "candidate_key_indicator": {
-            "name": "constant.language.indicator.rsn",
-            "match": "\\bX\\b"
-        },
-
-        "constraints": {
+        "syntax": {
             "patterns": [
                 {
-                    "name": "keyword.control.rsn",
+                    "name": "rsn.syntax.keyword",
                     "match": "\\b(NOT NULL|CHECK)\\b"
                 },
                 {
-                    "name": "constant.numeric.rsn",
+                    "name": "rsn.syntax.number",
                     "match": "\\b\\d+\\b"
-                }
-            ]
-        },
-
-        "delimiters": {
-            "name": "punctuation.separator.rsn",
-            "match": "(,|\\(|\\)|{|}\\[|\\])"
-        },
-        "primary_key_attribute_definition": {
-            "match": "(_)([A-Za-z0-9]+)(_)",
-            "captures": {
-                "1": { "name": "punctuation.definition.hidden.rsn" },
-                "2": { "name": "entity.name.key.primary.rsn" },
-                "3": { "name": "punctuation.definition.hidden.rsn" }
-            }
-        },
-        "foreign_key_source_block": {
-            "match": "(\\()([A-Za-z0-9_]+)(\\))\\s*(->)",
-            "captures": {
-                "1": { "name": "punctuation.separator.rsn" },
-                "2": { "name": "entity.name.key.foreign.source.rsn" },
-                "3": { "name": "punctuation.separator.rsn" },
-                "4": { "name": "keyword.operator.rsn" }
-            }
-        },
-        "foreign_key_target_block": {
-            "match": "\\b([A-Za-z][A-Za-z0-9_]*)\\s*(\\()([A-Za-z0-9_]+)(\\))",
-            "captures": {
-                "1": { "name": "entity.name.class.rsn" },
-                "2": { "name": "punctuation.separator.rsn" },
-                "3": { "name": "entity.name.key.primary.target.rsn" },
-                "4": { "name": "punctuation.separator.rsn" }
-            }
-        },
-        "candidate_keys_block": {
-            "begin": "\\{",
-            "end": "\\}",
-            "beginCaptures": {
-                "0": { "name": "punctuation.separator.rsn" }
-            },
-            "endCaptures": {
-                "0": { "name": "punctuation.separator.rsn" }
-            },
-            "patterns": [
-                {
-                    "match": ",",
-                    "name": "punctuation.separator.rsn"
                 },
                 {
-                    "match": "[A-Za-z0-9_]+",
-                    "name": "entity.name.key.candidate.rsn"
+                    "name": "rsn.syntax.operator",
+                    "match": "\\s+(<=|=>|=|<|>)\\s+"
+                },
+                {
+                    "name": "rsn.syntax.separator",
+                    "match": "\\s*,\\s*"
+                },
+                {
+                    "name": "rsn.syntax.separator",
+                    "match": "\\s*(\\(|\\)|\\{|\\}\\[|\\])\\s*"
                 }
             ]
         }
+        
     }
 }

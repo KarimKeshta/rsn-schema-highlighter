@@ -36,45 +36,29 @@
             }
         ],
         "configurationDefaults": {
+            "editor.bracketPairColorization.enabled": false,
             "editor.tokenColorCustomizations": {
                 "textMateRules": [
                     {
-                        "scope": "entity.name.class.rsn",
+                        "scope": "rsn.comment",
+                        "settings": {
+                            "foreground": "#606060",
+                            "fontStyle": "italic"
+                        }
+                    },
+                    {
+                        "name": "Green",
+                        "scope": "rsn.tablename",
                         "settings": {
                             "foreground": "#C3E88D",
                             "fontStyle": "bold"
                         }
                     },
                     {
+                        "name": "Light Blue",
                         "scope": [
-                            "entity.name.key.primary.rsn"
-                        ],
-                        "settings": {
-                            "foreground": "#C792EA",
-                            "fontStyle": "bold underline"
-                        }
-                    },
-                    {
-                        "scope": [
-                            "entity.name.key.primary.target.rsn"
-                        ],
-                        "settings": {
-                            "foreground": "#C792EA",
-                            "fontStyle": "italic"
-                        }
-                    },
-                    {
-                        "scope": [
-                            "entity.name.key.candidate.rsn"
-                        ],
-                        "settings": {
-                            "foreground": "#FF66AA"
-                        }
-                    },
-                    {
-                        "scope": [
-                            "entity.name.key.foreign.rsn",
-                            "entity.name.key.foreign.source.rsn"
+                            "rsn.key.foreign",
+                            "rsn.relationship.source"
                         ],
                         "settings": {
                             "foreground": "#89DDFF",
@@ -82,37 +66,69 @@
                         }
                     },
                     {
+                        "name": "Purple Underlined",
+                        "scope": "rsn.key.primary",
+                        "settings": {
+                            "foreground": "#C792EA",
+                            "fontStyle": "bold underline"
+                        }
+                    },
+                    {
+                        "name": "Purple",
+                        "scope": "rsn.relationship.target",
+                        "settings": {
+                            "foreground": "#C792EA",
+                            "fontStyle": "italic"
+                        }
+                    },
+                    {
+                        "name": "Magenta",
+                        "scope": "rsn.key.candidate",
+                        "settings": {
+                            "foreground": "#FF66AA"
+                        }
+                    },
+                    {
+                        "name": "Blue",
                         "scope": [
-                            "keyword.control.rsn",
-                            "keyword.operator.rsn"
+                            "rsn.syntax.operator",
+                            "rsn.syntax.relationship",
+                            "rsn.syntax.keyword"
                         ],
                         "settings": {
                             "foreground": "#82AAFF"
                         }
                     },
                     {
+                        "name": "Orange",
                         "scope": [
-                            "constant.numeric.rsn",
-                            "constant.language.indicator.rsn"
+                            "rsn.syntax.number",
+                            "rsn.syntax.candidate"
                         ],
                         "settings": {
                             "foreground": "#F78C6C"
                         }
                     },
                     {
-                        "scope": "punctuation.separator.rsn",
+                        "name": "Yellow",
+                        "scope": [
+                            "rsn.syntax.bracket",
+                            "rsn.syntax.separator"
+                        ],
                         "settings": {
-                            "foreground": "#8F93A2"
+                            "foreground": "#ffd900"
                         }
                     },
                     {
-                        "scope": "meta.text.plain.rsn",
+                        "name": "White",
+                        "scope": "rsn.text",
                         "settings": {
                             "foreground": "#EEFFFF"
                         }
                     },
                     {
-                        "scope": "punctuation.definition.hidden.rsn",
+                        "name": "Invisible",
+                        "scope": "rsn.invisible",
                         "settings": {
                             "foreground": "#00000000"
                         }
