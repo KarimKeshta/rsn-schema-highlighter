@@ -1,57 +1,71 @@
 ![Vorschau des Highlightings](screenshot.png)
-# Relational Schema Notation (RSN) Highlighter
+# Syntax Highlighting — Formaler Syntax für Relationalen Entwurf 
+> An der [Hochschule Kaiserslautern](https://hs-kl.de) wird zur Lehre von SQL & Datenmodellierung die Platform [DBcoach](https://dbcoach.hs-kl.de/) eingesetzt.\
+> Diese umfasst unter anderem einen **Formaler Syntax** zur Darstellung des Relationalen Entwürfe.\
+> Diese Erweiterung sorgt für eine farbliche hervorheben des Formalen Syntaxes.
 
-Ein VS Code Addon für Studenten, um **DBCoach**-Aufgaben und relationale Schemata einfacher zu bearbeiten.
 
-Dieses Plugin bietet Syntax-Highlighting für die relationale Notation, wie sie in der Vorlesung verwendet wird. Es hilft dir, Primärschlüssel, Fremdschlüssel und Beziehungen sofort visuell zu erkennen.
+## 🎓 Syntax-Guide & Farben
+Damit das Highlighting funktioniert, nutze folgende Schreibweisen:
+| Bezeichnung | Syntax | Info | Screenshot |
+| :--- | :--- | :--- | :--- |
+| **Tabellenname** | `Tabelle (...)` | Schreibe den Tabellennamen gefolgt von Klammern | <img src="images/Farbe_Tabellenname.png" alt="Tabellenname" style="height:20px; vertical-align: text-bottom;"/> |
+| **Primärschlüssel** | `_Name_` | Schreibe ein `_` vor und hinter den Primärschlüssel | <img src="images/Farbe_Primärschlüssel.png" alt="Primärschlüssel" style="height:20px; vertical-align: text-bottom;"/> |
+| **Fremdschlüssel** | `..Id` oder `..ID` | Ein Fremdschlüssel muss auf `ID` oder `id` enden | <img src="images/Farbe_Fremdschlüssel.png" alt="Fremdschlüssel" style="height:20px; vertical-align: text-bottom;"/> |
+| **Schlüsselkandidat** | `{Name}` | Die Schlüsselkandidaten mussen in zwischen `{}` stehen | <img src="images/Farbe_Schlüsselkandidat.png" alt="Schlüsselkandidat" style="height:20px; vertical-align: text-bottom;"/> |
+| **Integritätsbedingungen** | `NOT NULL` , `CHECK`| Aktuell werden nur diese 2 Integritätsbedingungen unterstüzt. | <img src="images/Farbe_Integritätsbedingungen.png" alt="Integritätsbedingungen" style="height:20px; vertical-align: text-bottom;"/> |
 
-## ✨ Features
+*Der Syntax stimmt mit dem Formalen Syntax aus DBcoach überein.*\
+*Die einzigste Ausnahme ist die Endung der Fremdschlüssel, diese muss technisch bedingt exact so geschrieben werden!*
 
-* **Syntax Highlighting:** Färbt deine Schemata automatisch ein.
-* **Intelligente Erkennung:**
-    * 🟨 **Tabellen** werden Gold/Gelb hervorgehoben.
-    * 🩷 **Primärschlüssel** (`_ID_` oder `{ID}`) leuchten in Pink.
-    * 💠 **Fremdschlüssel** (`(ID) ->`) werden Hellblau/Cyan markiert.
-    * 🟠 **Werte & Indikatoren** (wie `X` oder Zahlen) sind Orange.
-* **Candidate Keys:** Erkennt auch `{Kandidatenschlüssel}` innerhalb der Notation.
-* **Automatische Einrückung:** Hilft beim sauberen Formatieren der Aufgaben.
+##### Hier ein Screenshot des Farbschemas:
+<img src="images/Farben_Übersicht.png" alt="Vorschau" style="height:150px;"/>
+
 
 ## 🚀 Installation
-
 ### Über den VS Code Marketplace
 1. Öffne VS Code.
-2. Drücke `Strg+P` (oder `Cmd+P` auf Mac).
-3. Tippe: `ext install [DeinPublisherName].rsn-highlighter`
-*(Hinweis: Dieser Schritt gilt erst, wenn du es veröffentlicht hast)*
+2. Gehe links auf das Erweiterungen-Icon (oder drücke Strg+Shift+X)
+3. Suche nach `DBcoach` oder `RSN`.
+4. Installiere: `DBcoach — Formaler Syntax für Relationalen Entwurf`
 
 ### Manuelle Installation (.vsix)
-Wenn du die Datei von einem Kommilitonen erhalten hast:
-1. Gehe in VS Code zum Bereich **Erweiterungen** (`Strg+Shift+X`).
-2. Klicke oben rechts auf die drei Punkte `...`.
-3. Wähle **"Install from VSIX..."**.
-4. Wähle die Datei `rsn-highlighter-0.0.1.vsix` aus.
+Falls du die .vsix-Datei direkt von jemandem bekommen hast:
+1. Speichere die Datei rsn-highlighter-1.0.0.vsix auf deinem PC.
+2. Öffne VS Code und gehe zu Erweiterungen (Strg+Shift+X).+
+3. Klicke oben rechts im Menü auf die drei Punkte (...).
+4. Wähle "Install from VSIX..." (VSIX aus Datei installieren).
+5. Wähle die Datei aus. Fertig!
 
-## 🎨 Farbschema
-
-Damit du dich in den Aufgaben schnell zurechtfindest:
-
-| Element | Farbe | Bedeutung |
-| :--- | :--- | :--- |
-| **Tabellenname** | 🟢 Grün / 🟡 Gold | Der Name der Relation (z.B. `Gerichte`) |
-| **Primärschlüssel** | 🩷 **Pink** | Eindeutige Identifikation (`_ID_` oder `{ID}`) |
-| **Fremdschlüssel** | 💠 *Cyan* | Verweis auf eine andere Tabelle |
-| **Attribute** | ⚪ Weiß | Normale Datenfelder |
-| **Constraints** | 🟣 Lila | `NOT NULL`, `UNIQUE`, Pfeile `->` |
 
 ## 📝 Beispiel Code
 
-Erstelle eine Datei mit der Endung `.rsn` und füge deinen DBCoach-Code ein:
+Hier ist ein Auszug aus der Lösung der Menaplan Aufgabe aus dem DBcoach.\
+Erstelle eine Datei mit der Endung **.rsn** und kopiere diesen Text hinein.\
+Er sollte nun so dargestellt werden wie auf dem Screenshot.
 
 ```rsn
-Gerichte ( _GerichtID_ , Name, Preis )
+Gerichte (_GerichtID_, Name, Preis_S, Preis_M, Preis_G)
 {GerichtID} -> X
-Name NOT NULL
+{Name} -> X
+Name, Preis_S, Preis_M, Preis_G NOT NULL
+Preis_S, Preis_M, Preis_G > 0
 
-Fotos ( _FotoID_, GerichtID, Dateipfad )
+Fotos (_FotoID_, GerichtID, NutzerID, Datum, Dateipfad, IsStandard)
 {FotoID} -> X
+{GerichtID, UserID} -> X
 (GerichtID) -> Gerichte(GerichtID)
+(NutzerID) -> Benutzer(NutzerID)
+```
+
+#
+> [!NOTE]
+> Wenn euch Fehler auffallen oder Ihr Verbesserungsvorschläge habt, wendet euch bitte direkt an mich.\
+> Die Dozenten haben mit diesem Projekt nichts zu tun.
+
+> [!IMPORTANT]
+> **Rechtlicher Hinweis / Disclaimer**\
+> Dies ist ein inoffizielles Projekt von Studenten für Studenten. \
+> Diese Erweiterung steht in keinerlei Verbindung zu den Entwicklern von DBCoach.\
+> Die Nutzung des Namens "DBCoach" dient lediglich der Beschreibung des Verwendungszwecks.
+
