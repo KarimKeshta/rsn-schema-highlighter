@@ -1,16 +1,24 @@
 {
     "name": "rsn-schema-highlighter",
-    "displayName": "DBcoach — Formaler Syntax für Relationalen Entwurf",
-    "version": "1.0.0",
+    
     "publisher": "KarimKeshta",
+    "version": "1.0.0",
+    "license": "MIT",
+    
+    "displayName": "DBcoach — Formaler Syntax für Relationalen Entwurf",
+    "description": "Highlighting the Syntax of \"Formaler Syntax\" from DBcoach",
+    "categories": ["Education"],
+    
     "repository": {
-    "type": "git",
-        "url": "https://github.com/KarimKeshta/rsn-schema-highlighter" 
+        "type": "git",
+        "url": "https://github.com/KarimKeshta/rsn-schema-highlighter",
+        "icon": "dbcoach-syntax-icon.png"
     },
-    "icon": "dbcoach-syntax-icon.png",
+    
     "engines": {
         "vscode": "^1.80.0"
     },
+
     "contributes": {
         "languages": [
             {
@@ -27,12 +35,90 @@
                 "path": "./syntaxes/rsn.tmLanguage.json"
             }
         ],
-        "themes": [
-            {
-                "label": "RSN Theme Overrides",
-                "uiTheme": "vs-dark",
-                "path": "./themes/rsn-colors.json"
+        "configurationDefaults": {
+            "editor.tokenColorCustomizations": {
+                "textMateRules": [
+                    {
+                        "scope": "entity.name.class.rsn",
+                        "settings": {
+                            "foreground": "#C3E88D",
+                            "fontStyle": "bold"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "entity.name.key.primary.rsn"
+                        ],
+                        "settings": {
+                            "foreground": "#C792EA",
+                            "fontStyle": "bold underline"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "entity.name.key.primary.target.rsn"
+                        ],
+                        "settings": {
+                            "foreground": "#C792EA",
+                            "fontStyle": "italic"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "entity.name.key.candidate.rsn"
+                        ],
+                        "settings": {
+                            "foreground": "#FF66AA"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "entity.name.key.foreign.rsn",
+                            "entity.name.key.foreign.source.rsn"
+                        ],
+                        "settings": {
+                            "foreground": "#89DDFF",
+                            "fontStyle": "italic"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "keyword.control.rsn",
+                            "keyword.operator.rsn"
+                        ],
+                        "settings": {
+                            "foreground": "#82AAFF"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "constant.numeric.rsn",
+                            "constant.language.indicator.rsn"
+                        ],
+                        "settings": {
+                            "foreground": "#F78C6C"
+                        }
+                    },
+                    {
+                        "scope": "punctuation.separator.rsn",
+                        "settings": {
+                            "foreground": "#8F93A2"
+                        }
+                    },
+                    {
+                        "scope": "meta.text.plain.rsn",
+                        "settings": {
+                            "foreground": "#EEFFFF"
+                        }
+                    },
+                    {
+                        "scope": "punctuation.definition.hidden.rsn",
+                        "settings": {
+                            "foreground": "#00000000"
+                        }
+                    }
+                ]
             }
-        ]
+        }
     }
 }
