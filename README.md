@@ -10,16 +10,16 @@ Damit das Highlighting funktioniert, nutze folgende Schreibweisen:
 | Bezeichnung | Syntax | Info | Screenshot |
 | :--- | :--- | :--- | :--- |
 | **Tabellenname** | `Tabelle (...)` | Schreibe den Tabellennamen gefolgt von Klammern | <img src="images/Farbe_Tabellenname.png" alt="Tabellenname" style="height:20px; vertical-align: text-bottom;"/> |
-| **Primärschlüssel** | `_Name_` | Schreibe ein `_` vor und hinter den Primärschlüssel | <img src="images/Farbe_Primärschlüssel.png" alt="Primärschlüssel" style="height:20px; vertical-align: text-bottom;"/> |
-| **Fremdschlüssel** | `..Id` oder `..ID` | Ein Fremdschlüssel muss auf `ID` oder `id` enden | <img src="images/Farbe_Fremdschlüssel.png" alt="Fremdschlüssel" style="height:20px; vertical-align: text-bottom;"/> |
-| **Schlüsselkandidat** | `{Name}` | Die Schlüsselkandidaten mussen in zwischen `{}` stehen | <img src="images/Farbe_Schlüsselkandidat.png" alt="Schlüsselkandidat" style="height:20px; vertical-align: text-bottom;"/> |
-| **Integritätsbedingungen** | `NOT NULL` , `CHECK`| Aktuell werden nur diese 2 Integritätsbedingungen unterstüzt. | <img src="images/Farbe_Integritätsbedingungen.png" alt="Integritätsbedingungen" style="height:20px; vertical-align: text-bottom;"/> |
+| **Primärschlüssel** | `_Name_` | Schreibe ein `_` vor und hinter den Primärschlüssel | <img src="./images/Farbe_Primaerschluessel.png" alt="Primärschlüssel" style="height:20px; vertical-align: text-bottom;"/> |
+| **Fremdschlüssel** | `..Id` oder `..ID` | Ein Fremdschlüssel muss auf `ID` oder `id` enden | <img src="images/Farbe_Fremdschluessel.png" alt="Fremdschlüssel" style="height:20px; vertical-align: text-bottom;"/> |
+| **Schlüsselkandidat** | `{Name}` | Die Schlüsselkandidaten mussen in zwischen `{}` stehen | <img src="images/Farbe_Schluesselkandidat.png" alt="Schlüsselkandidat" style="height:20px; vertical-align: text-bottom;"/> |
+| **Integritätsbedingungen** | `NOT NULL` , `CHECK`| Aktuell werden nur diese 2 Integritätsbedingungen unterstüzt. | <img src="images/Farbe_Integritaetsbedingungen.png" alt="Integritätsbedingungen" style="height:20px; vertical-align: text-bottom;"/> |
 
 *Der Syntax stimmt mit dem Formalen Syntax aus DBcoach überein.*\
 *Die einzigste Ausnahme ist die Endung der Fremdschlüssel, diese muss technisch bedingt exact so geschrieben werden!*
 
 ##### Hier ein Screenshot des Farbschemas:
-<img src="images/Farben_Übersicht.png" alt="Vorschau" style="height:150px;"/>
+<img src="images/Farben_Uebersicht.png" alt="Vorschau" style="height:150px;"/>
 
 
 ## 🚀 Installation
