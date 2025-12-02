@@ -31,7 +31,7 @@ Damit das Highlighting funktioniert, nutze folgende Schreibweisen:
 
 ### Manuelle Installation (.vsix)
 Falls du die .vsix-Datei direkt von jemandem bekommen hast:
-1. Speichere die Datei rsn-highlighter-1.0.0.vsix auf deinem PC.
+1. Speichere die Datei `rsn-schema-highlighter-1.0.0.vsix` auf deinem PC.
 2. Öffne VS Code und gehe zu Erweiterungen (Strg+Shift+X).+
 3. Klicke oben rechts im Menü auf die drei Punkte (...).
 4. Wähle "Install from VSIX..." (VSIX aus Datei installieren).

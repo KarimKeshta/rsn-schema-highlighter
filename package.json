@@ -8,11 +8,16 @@
     "displayName": "DBcoach — Formaler Syntax für Relationalen Entwurf",
     "description": "Highlighting the Syntax of \"Formaler Syntax\" from DBcoach",
     "categories": ["Education"],
+    "keywords": [
+        "DBcoach",
+        "Formaler Syntax",
+        "Hochschule Kaiserslautern" 
+    ],
     
     "repository": {
         "type": "git",
         "url": "https://github.com/KarimKeshta/rsn-schema-highlighter",
-        "icon": "dbcoach-syntax-icon.png"
+        "icon": "icon.png"
     },
     
     "engines": {
