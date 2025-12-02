@@ -1,1 +1,11 @@
-<
+.vscode/**
+
+.git/**
+.gitignore
+
+images/**
+**/*.png
+!icon.png
+
+node_modules/**
+*.vsix
