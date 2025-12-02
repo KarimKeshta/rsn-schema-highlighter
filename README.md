@@ -1,4 +1,4 @@
-![Vorschau des Highlightings](screenshot.png)
+![Vorschau des Highlightings](images/preview.png)
 # Syntax Highlighting — Formaler Syntax für Relationalen Entwurf 
 > An der [Hochschule Kaiserslautern](https://hs-kl.de) wird zur Lehre von SQL & Datenmodellierung die Platform [DBcoach](https://dbcoach.hs-kl.de/) eingesetzt.\
 > Diese umfasst unter anderem einen **Formaler Syntax** zur Darstellung des Relationalen Entwürfe.\

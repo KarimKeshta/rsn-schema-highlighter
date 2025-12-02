@@ -13,12 +13,16 @@
         "Formaler Syntax",
         "Hochschule Kaiserslautern" 
     ],
-    
+    "icon": "icon.png",
+
     "repository": {
         "type": "git",
-        "url": "https://github.com/KarimKeshta/rsn-schema-highlighter",
-        "icon": "icon.png"
+        "url": "https://github.com/KarimKeshta/rsn-schema-highlighter.git"
     },
+    "bugs": {
+        "url": "https://github.com/KarimKeshta/rsn-schema-highlighter/issues"
+    },
+    "homepage": "https://github.com/KarimKeshta/rsn-schema-highlighter#readme",
     
     "engines": {
         "vscode": "^1.80.0"
